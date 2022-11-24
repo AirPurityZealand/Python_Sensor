@@ -12,7 +12,7 @@ class AirSensor:
     def __init__(self):
         self.room = 12
         self.timestamp = json.dumps(datetime.datetime.now(), default=str)
-        self.co2 = random.randint(1, 101)
+        self.co2_meassurement = random.randint(989, 1100) #Call measurement here
 
 
 # Information about serverç
