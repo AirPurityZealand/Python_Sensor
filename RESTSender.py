@@ -4,7 +4,7 @@ from post_threading import post_thread
 import requests
 import json
 
-REST_URL = #"https://udpexercise2rest20221101164840.azurewebsites.net"
+REST_URL = "" # "https://udpexercise2rest20221101164840.azurewebsites.net"
 
 serverPort = 10100
 serverSocket = socket(AF_INET, SOCK_DGRAM)
