@@ -13,7 +13,7 @@ print("The server is ready to receive")
 
 # https://www.freecodecamp.org/news/how-to-interact-with-web-services-using-python/
 
-def post_to_rest(message):
+def post_to_rest(message): #! Here we get int, so must use class
     message = message.decode()
     response = requests.post(
         f"{REST_URL}/api/AirData", json=json.loads(message) # Maybe dont need json.loads

@@ -3,28 +3,31 @@ import random
 import json
 import time
 import datetime
+import AirSensor_class
 # Done
 # Has a problem if we close the clientSocket.
 # Could make a try exept if its a problem
 
 REST_URL = "" # "https://udpexercise2rest20221101164840.azurewebsites.net"
 
-class AirSensor:
-    def __init__(self):
-        self.room = 12
-        self.timestamp = json.dumps(datetime.datetime.now(), default=str)
-        self.co2_meassurement = random.randint(989, 1100) #Call measurement here
 
-
-# Information about serverç
+# Information about server
 serverPort = 10100
-clientSocket = socket(AF_INET, SOCK_DGRAM)
+serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(("", serverPort))
 
-while True:  # Broadcast speed_data
-    air_data = AirSensor()
+
+def send_current_measurement():
+    air_data = AirSensor_class()
     air_data_json = json.dumps(air_data.__dict__)
-    clientSocket.sendto(air_data_json.encode(), (serverName, serverPort))
-    time.sleep(round(random.uniform(0.5, 3)))
-    # clientSocket.close()
-    
+    response = air_data_json.post(
+        f"{REST_URL}/api/AirData", json=air_data_json)
+    print(response.json())
+    return
+
+def send_measurement(air_data):
+    air_data_json = json.dumps(air_data.__dict__)
+    response = air_data_json.post(
+        f"{REST_URL}/api/AirData", json=air_data_json)
+    print(response.json())
+    return

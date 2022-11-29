@@ -27,4 +27,3 @@ while True:  # Broadcast speed_data
     clientSocket.sendto(air_data_json.encode(), (serverName, serverPort))
     time.sleep(round(random.uniform(0.5, 3)))
     # clientSocket.close()
-    
