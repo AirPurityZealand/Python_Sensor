@@ -18,9 +18,10 @@ def post_to_rest(message): #! Here we get int, so must use class
     co2_object = AirSensor_class.Sensor_co2(message)
     co2_object_json = json.dumps(co2_object.__dict__)
     response = requests.post(
-        f"{REST_URL}/api/AirData", json=json.loads(message) # Maybe dont need json.loads
+        f"{REST_URL}/api/Air", json=json.loads(co2_object_json) # Maybe dont need json.loads
     )
     print(response.json())
     return
 
+post_to_rest(1)
 

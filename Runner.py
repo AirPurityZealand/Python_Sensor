@@ -9,7 +9,7 @@ def set_start_time():
 
 # get elapsed time in min
 def get_elapsed_time_min():
-    return ((time.perf_counter() - start_time) / 3600)
+    return ((time.perf_counter() - start_time) / 60)
 
 def run():
 
