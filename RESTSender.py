@@ -12,7 +12,7 @@ import AirSensor_class
 
 # https://www.freecodecamp.org/news/how-to-interact-with-web-services-using-python/
 
-def post_to_rest(message): #! Here we get int, so must use class
+def post_to_rest(message): #TODO find out, does this send the right json? 
     co2_object = AirSensor_class.Sensor_co2(message)
     co2_object_json = json.dumps(co2_object.__dict__)
     response = requests.post(
@@ -26,6 +26,3 @@ def get_rest_url_from_config():
     config_obj.read('configfile.ini')
     rest_connection = config_obj['rest_connection']
     return rest_connection['rest_url']
-
-post_to_rest(1)
-
