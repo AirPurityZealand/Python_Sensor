@@ -11,7 +11,6 @@ def set_start_time():
 def get_elapsed_time_min():
     return ((time.perf_counter() - start_time) / 3600)
 
-
 def run():
 
     # get measurement from sensor
@@ -20,7 +19,8 @@ def run():
     # set bool weaher measurement is bad
     co2_value_good = True
 
-    if co2_value > 1000:
+    #if co2_value > 1000:
+    if co2_value == 1:
         co2_value_good = False
     else:
         co2_value_good = True
