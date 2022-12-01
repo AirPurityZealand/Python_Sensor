@@ -1,7 +1,7 @@
-import AirSensor
+import Sensor
 import RESTSender
 import time
-
+start_time = 0.0
 # set timer
 def set_start_time():
     global start_time
@@ -9,12 +9,13 @@ def set_start_time():
 
 # get elapsed time in min
 def get_elapsed_time_min():
+    global start_time
     return ((time.perf_counter() - start_time) / 60)
 
 def run():
 
     # get measurement from sensor
-    co2_value = AirSensor.measure_co2()
+    co2_value = Sensor.measure_co2()
 
     # set bool weaher measurement is bad
     co2_value_good = True
