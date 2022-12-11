@@ -1,6 +1,7 @@
 import Sensor
 import RESTSender
 import time
+import Led_controller
 start_time = 0.0
 # set timer
 def set_start_time():
@@ -23,8 +24,10 @@ def run():
     #if co2_value > 1000:
     if co2_value == 1:
         co2_value_good = False
+        Led_controller.led_controller('on') # Turn led on
     else:
         co2_value_good = True
+        Led_controller.led_controller('off') # Turn led off
 
     # if bool == bad and timer > 5min
     #   send measurement
