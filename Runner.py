@@ -43,7 +43,7 @@ def run():
         RESTSender.post_to_rest(co2_value)
         set_start_time()
 
-
+# set_start_time() # Comment out to run once on startup. 
 while True:
     run()
-    time.sleep(5)
+    time.sleep(0.5)

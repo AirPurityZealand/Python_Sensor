@@ -19,4 +19,4 @@ def post_to_rest(message): #TODO find out, does this send the right json?
     response = requests.post(
         f"{ConfigReader.get_from_config('rest_connection', 'rest_url')}/api/air", json=json.loads(co2_object_json) # Maybe dont need json.loads
     )
-    print(response)
+    print(f"{response}:    {response.json()}")

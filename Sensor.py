@@ -18,4 +18,4 @@ def measure_co2():
 #! For when running on pc
 import random
 def measure_co2():
-    return random.randint(0, 1)
+    return random.randint(0,1)
