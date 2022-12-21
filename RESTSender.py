@@ -13,10 +13,11 @@ import ConfigReader
 
 # https://www.freecodecamp.org/news/how-to-interact-with-web-services-using-python/
 
-def post_to_rest(message): #TODO find out, does this send the right json? 
+def post_to_rest(message):
     co2_object = AirSensor_class.Sensor_co2(message)
     co2_object_json = json.dumps(co2_object.__dict__)
     response = requests.post(
-        f"{ConfigReader.get_from_config('rest_connection', 'rest_url')}/api/air", json=json.loads(co2_object_json) # Maybe dont need json.loads
+        f"{ConfigReader.get_from_config('rest_connection', 'rest_url')}/api/Air", json=json.loads(co2_object_json) # Maybe dont need json.loads
     )
-    print(f"{response}:    {response.json()}")
+    print(f"{response.status_code} {response}")
+
